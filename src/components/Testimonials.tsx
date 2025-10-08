@@ -4,6 +4,7 @@ import { ArrowDown, ChevronLeft, ChevronRight } from 'lucide-react';
 const Testimonials: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [playingVideos, setPlayingVideos] = useState<Set<number>>(new Set());
 
   const handleScrollToOffers = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -54,6 +55,18 @@ const Testimonials: React.FC = () => {
   const handleMouseEnter = useCallback(() => setIsAutoPlaying(false), []);
   const handleMouseLeave = useCallback(() => setIsAutoPlaying(true), []);
 
+  const handleVideoPlay = useCallback((index: number) => {
+    setPlayingVideos(prev => new Set(prev).add(index));
+  }, []);
+
+  const handleVideoPause = useCallback((index: number) => {
+    setPlayingVideos(prev => {
+      const newSet = new Set(prev);
+      newSet.delete(index);
+      return newSet;
+    });
+  }, []);
+
   return (
     <section id="depoimentos" className="py-8 md:py-16 lg:py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -67,76 +80,148 @@ const Testimonials: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto mb-8">
-          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden">
+          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden relative group cursor-pointer">
             <video
               src="https://i.imgur.com/77TNpQy.mp4"
+              poster="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=600"
               controls
               className="w-full h-auto"
               preload="none"
               loading="lazy"
+              onPlay={() => handleVideoPlay(0)}
+              onPause={() => handleVideoPause(0)}
             >
               Seu navegador não suporta vídeos.
             </video>
+            {!playingVideos.has(0) && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all pointer-events-none">
+                <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                  <svg className="w-8 h-8 text-natural-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+            )}
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden">
+          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden relative group cursor-pointer">
             <video
               src="https://i.imgur.com/CF3SOWj.mp4"
+              poster="https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=600"
               controls
               className="w-full h-auto"
               preload="none"
               loading="lazy"
+              onPlay={() => handleVideoPlay(1)}
+              onPause={() => handleVideoPause(1)}
             >
               Seu navegador não suporta vídeos.
             </video>
+            {!playingVideos.has(1) && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all pointer-events-none">
+                <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                  <svg className="w-8 h-8 text-natural-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+            )}
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden">
+          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden relative group cursor-pointer">
             <video
               src="https://i.imgur.com/OLiohVn.mp4"
+              poster="https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&cs=tinysrgb&w=600"
               controls
               className="w-full h-auto"
               preload="none"
               loading="lazy"
+              onPlay={() => handleVideoPlay(2)}
+              onPause={() => handleVideoPause(2)}
             >
               Seu navegador não suporta vídeos.
             </video>
+            {!playingVideos.has(2) && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all pointer-events-none">
+                <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                  <svg className="w-8 h-8 text-natural-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+            )}
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden">
+          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden relative group cursor-pointer">
             <video
               src="https://i.imgur.com/u6bF0FY.mp4"
+              poster="https://images.pexels.com/photos/5473184/pexels-photo-5473184.jpeg?auto=compress&cs=tinysrgb&w=600"
               controls
               className="w-full h-auto"
               preload="none"
               loading="lazy"
+              onPlay={() => handleVideoPlay(3)}
+              onPause={() => handleVideoPause(3)}
             >
               Seu navegador não suporta vídeos.
             </video>
+            {!playingVideos.has(3) && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all pointer-events-none">
+                <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                  <svg className="w-8 h-8 text-natural-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+            )}
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden">
+          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden relative group cursor-pointer">
             <video
               src="https://i.imgur.com/rzUgSjC.mp4"
+              poster="https://images.pexels.com/photos/6646917/pexels-photo-6646917.jpeg?auto=compress&cs=tinysrgb&w=600"
               controls
               className="w-full h-auto"
               preload="none"
               loading="lazy"
+              onPlay={() => handleVideoPlay(4)}
+              onPause={() => handleVideoPause(4)}
             >
               Seu navegador não suporta vídeos.
             </video>
+            {!playingVideos.has(4) && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all pointer-events-none">
+                <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                  <svg className="w-8 h-8 text-natural-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+            )}
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden">
+          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden relative group cursor-pointer">
             <video
               src="https://i.imgur.com/t0TYi4W.mp4"
+              poster="https://images.pexels.com/photos/5473183/pexels-photo-5473183.jpeg?auto=compress&cs=tinysrgb&w=600"
               controls
               className="w-full h-auto"
               preload="none"
               loading="lazy"
+              onPlay={() => handleVideoPlay(5)}
+              onPause={() => handleVideoPause(5)}
             >
               Seu navegador não suporta vídeos.
             </video>
+            {!playingVideos.has(5) && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-all pointer-events-none">
+                <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                  <svg className="w-8 h-8 text-natural-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -151,7 +236,7 @@ const Testimonials: React.FC = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <div className="relative h-96 md:h-80 aspect-ratio-16-9 px-4 md:px-0">
+            <div className="relative h-[500px] sm:h-96 md:h-80 aspect-ratio-16-9">
               {testimonialImages.map((testimonial, index) => (
                 <div
                   key={index}
@@ -162,12 +247,12 @@ const Testimonials: React.FC = () => {
                   <img
                     src={testimonial.src}
                     alt={testimonial.alt}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain px-2 sm:px-4 md:px-0"
                     loading="lazy"
                     width="600"
                     height="400"
                     decoding="async"
-                    style={{ objectPosition: 'center' }}
+                    style={{ objectPosition: 'center', maxHeight: '100%' }}
                   />
                 </div>
               ))}
