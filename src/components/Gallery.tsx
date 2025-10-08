@@ -44,7 +44,15 @@ const Gallery: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 md:gap-4 max-w-6xl mx-auto">
           {ingredients.map((ingredient, index) => (
             <div key={index} className="bg-white rounded-lg p-3 md:p-4 shadow-sm text-center">
-              <img src={ingredient.image} alt={ingredient.name} className="w-full h-16 object-contain mb-2" loading="lazy" />
+              <img
+                src={ingredient.image}
+                alt={ingredient.name}
+                className="w-full h-16 object-contain mb-2"
+                loading="lazy"
+                decoding="async"
+                width="64"
+                height="64"
+              />
               <h3 className="font-bold text-natural-800 mb-1 text-xs md:text-sm">{ingredient.name}</h3>
               <p className="text-natural-700 text-xs leading-tight">{ingredient.properties}</p>
             </div>

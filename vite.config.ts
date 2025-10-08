@@ -5,12 +5,12 @@ export default defineConfig({
   plugins: [react()],
   base: '/',
   build: {
-    target: 'es2020',
+    target: 'es2015',
     outDir: 'dist',
     emptyOutDir: true,
     cssCodeSplit: true,
     sourcemap: false,
-    assetsInlineLimit: 4096,
+    assetsInlineLimit: 8192,
     copyPublicDir: true,
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
@@ -50,17 +50,33 @@ export default defineConfig({
         drop_console: true,
         drop_debugger: true,
         pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.trace'],
-        passes: 3,
+        passes: 2,
         unsafe: true,
         unsafe_comps: true,
         unsafe_math: true,
-        unsafe_proto: true
+        unsafe_proto: true,
+        ecma: 2015,
+        toplevel: true,
+        arrows: true,
+        arguments: true,
+        booleans: true,
+        collapse_vars: true,
+        dead_code: true,
+        evaluate: true,
+        if_return: true,
+        inline: 2,
+        join_vars: true,
+        loops: true,
+        reduce_vars: true,
+        unused: true
       },
       mangle: {
-        safari10: true
+        safari10: true,
+        toplevel: true
       },
       format: {
-        comments: false
+        comments: false,
+        ecma: 2015
       }
     },
     reportCompressedSize: false
@@ -69,7 +85,7 @@ export default defineConfig({
     include: ['react', 'react-dom', 'lucide-react'],
     exclude: [],
     esbuildOptions: {
-      target: 'es2020'
+      target: 'es2015'
     }
   },
   server: {

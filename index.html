@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#538c57" />
     <title>Farmácia Natural em Casa | Remédios Naturais Para Toda Família</title>
     <meta name="description" content="Descubra como tratar naturalmente diabetes, insônia, ansiedade e mais com ingredientes da sua cozinha. Guia completo de receitas naturais." />
+    <meta name="format-detection" content="telephone=no" />
     
     <!-- Performance optimizations -->
-    <link rel="dns-prefetch" href="//images.pexels.com">
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//i.imgur.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="preconnect" href="https://images.pexels.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://i.imgur.com" crossorigin>
     
     <!-- Inline critical CSS and fonts -->
     <style>
@@ -97,6 +97,9 @@
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Prefetch DNS for third-party resources -->
+    <link rel="dns-prefetch" href="//cdn.utmify.com.br">
     
     <script>
       // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
@@ -157,48 +160,46 @@
     
     <!-- UTMify Pixel Script - Permissões Totais -->
     <script>
-      // Defer pixel loading to improve performance
       function loadPixel() {
-      window.pixelId = "68be1608013346c26842c789";
-      window.pixelConfig = {
-        trackPageView: true,
-        trackClicks: true,
-        trackScrollDepth: true,
-        trackTimeOnPage: true,
-        trackFormSubmissions: true,
-        trackButtonClicks: true,
-        trackVideoViews: true,
-        trackDownloads: true,
-        trackOutboundLinks: true,
-        trackCustomEvents: true,
-        trackMouseMovement: true,
-        trackKeyboardEvents: true,
-        trackTouchEvents: true,
-        trackWindowEvents: true,
-        trackNetworkEvents: true,
-        trackPerformanceMetrics: true,
-        trackUserAgent: true,
-        trackScreenResolution: true,
-        trackTimezone: true,
-        trackLanguage: true,
-        trackReferrer: true,
-        trackSessionData: true,
-        trackLocalStorage: true,
-        trackCookies: true,
-        captureAllEvents: true
-      };
-      var a = document.createElement("script");
-      a.async = true;
-      a.defer = true;
-      a.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
-      document.head.appendChild(a);
+        window.pixelId = "68be1608013346c26842c789";
+        window.pixelConfig = {
+          trackPageView: true,
+          trackClicks: true,
+          trackScrollDepth: true,
+          trackTimeOnPage: true,
+          trackFormSubmissions: true,
+          trackButtonClicks: true,
+          trackVideoViews: true,
+          trackDownloads: true,
+          trackOutboundLinks: true,
+          trackCustomEvents: true,
+          trackMouseMovement: false,
+          trackKeyboardEvents: false,
+          trackTouchEvents: false,
+          trackWindowEvents: false,
+          trackNetworkEvents: false,
+          trackPerformanceMetrics: true,
+          trackUserAgent: true,
+          trackScreenResolution: true,
+          trackTimezone: true,
+          trackLanguage: true,
+          trackReferrer: true,
+          trackSessionData: true,
+          trackLocalStorage: true,
+          trackCookies: true,
+          captureAllEvents: false
+        };
+        var a = document.createElement("script");
+        a.async = true;
+        a.defer = true;
+        a.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
+        document.head.appendChild(a);
       }
-      
-      // Load pixel after page load
+
       if (document.readyState === 'complete') {
-        setTimeout(loadPixel, 100);
+        setTimeout(loadPixel, 2000);
       } else {
-        window.addEventListener('load', () => setTimeout(loadPixel, 100));
+        window.addEventListener('load', () => setTimeout(loadPixel, 2000));
       }
     </script>
     
@@ -297,38 +298,26 @@
         }
       }, { passive: true, capture: false });
       
-      // Track scroll depth with better throttling
       let maxScrollDepth = 0;
       let scrollTimeout;
-      let rafId;
       window.addEventListener('scroll', function() {
-        if (rafId) return;
-
-        rafId = requestAnimationFrame(() => {
-          if (scrollTimeout) {
-            rafId = null;
-            return;
-          }
-
-          scrollTimeout = setTimeout(() => {
-            try {
-              const scrollDepth = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-              if (scrollDepth > maxScrollDepth && scrollDepth % 25 === 0) {
-                maxScrollDepth = scrollDepth;
-                if (window.trackEvent) {
-                  window.trackEvent('ScrollDepth', {
-                    depth: scrollDepth,
-                    timestamp: new Date().toISOString()
-                  });
-                }
+        if (scrollTimeout) return;
+        scrollTimeout = setTimeout(() => {
+          try {
+            const scrollDepth = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            if (scrollDepth > maxScrollDepth && scrollDepth % 25 === 0) {
+              maxScrollDepth = scrollDepth;
+              if (window.trackEvent) {
+                window.trackEvent('ScrollDepth', {
+                  depth: scrollDepth,
+                  timestamp: new Date().toISOString()
+                });
               }
-            } catch (error) {}
-            scrollTimeout = null;
-          }, 150);
-
-          rafId = null;
-        });
-      }, { passive: true, capture: false });
+            }
+          } catch (error) {}
+          scrollTimeout = null;
+        }, 300);
+      }, { passive: true });
       
       // Track time on page
       let startTime = Date.now();

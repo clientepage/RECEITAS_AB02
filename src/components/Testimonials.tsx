@@ -72,7 +72,8 @@ const Testimonials: React.FC = () => {
               src="https://i.imgur.com/77TNpQy.mp4"
               controls
               className="w-full h-auto"
-              preload="metadata"
+              preload="none"
+              loading="lazy"
             >
               Seu navegador não suporta vídeos.
             </video>
@@ -83,7 +84,8 @@ const Testimonials: React.FC = () => {
               src="https://i.imgur.com/CF3SOWj.mp4"
               controls
               className="w-full h-auto"
-              preload="metadata"
+              preload="none"
+              loading="lazy"
             >
               Seu navegador não suporta vídeos.
             </video>
@@ -94,7 +96,8 @@ const Testimonials: React.FC = () => {
               src="https://i.imgur.com/OLiohVn.mp4"
               controls
               className="w-full h-auto"
-              preload="metadata"
+              preload="none"
+              loading="lazy"
             >
               Seu navegador não suporta vídeos.
             </video>
@@ -105,7 +108,8 @@ const Testimonials: React.FC = () => {
               src="https://i.imgur.com/u6bF0FY.mp4"
               controls
               className="w-full h-auto"
-              preload="metadata"
+              preload="none"
+              loading="lazy"
             >
               Seu navegador não suporta vídeos.
             </video>
@@ -116,7 +120,8 @@ const Testimonials: React.FC = () => {
               src="https://i.imgur.com/rzUgSjC.mp4"
               controls
               className="w-full h-auto"
-              preload="metadata"
+              preload="none"
+              loading="lazy"
             >
               Seu navegador não suporta vídeos.
             </video>
@@ -127,7 +132,8 @@ const Testimonials: React.FC = () => {
               src="https://i.imgur.com/t0TYi4W.mp4"
               controls
               className="w-full h-auto"
-              preload="metadata"
+              preload="none"
+              loading="lazy"
             >
               Seu navegador não suporta vídeos.
             </video>
