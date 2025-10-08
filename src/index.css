@@ -164,21 +164,8 @@
   .aspect-ratio-16-9 {
     aspect-ratio: 16 / 9;
   }
-
+  
   .aspect-ratio-1-1 {
     aspect-ratio: 1 / 1;
-  }
-
-  /* Video play button overlay */
-  video::-webkit-media-controls-play-button {
-    display: none !important;
-  }
-
-  video[poster] {
-    object-fit: cover;
-  }
-
-  .group:has(video:not([poster])) .absolute {
-    display: none;
   }
 }
