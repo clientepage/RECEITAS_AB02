@@ -67,76 +67,94 @@ const Testimonials: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto mb-8">
-          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden">
+          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden relative group">
             <video
               src="https://i.imgur.com/77TNpQy.mp4"
               controls
               className="w-full h-auto"
-              preload="none"
+              preload="metadata"
               loading="lazy"
             >
               Seu navegador não suporta vídeos.
             </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-natural-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex items-end p-4">
+              <p className="text-white text-sm font-medium">Depoimento 1</p>
+            </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden">
+          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden relative group">
             <video
               src="https://i.imgur.com/CF3SOWj.mp4"
               controls
               className="w-full h-auto"
-              preload="none"
+              preload="metadata"
               loading="lazy"
             >
               Seu navegador não suporta vídeos.
             </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-natural-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex items-end p-4">
+              <p className="text-white text-sm font-medium">Depoimento 2</p>
+            </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden">
+          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden relative group">
             <video
               src="https://i.imgur.com/OLiohVn.mp4"
               controls
               className="w-full h-auto"
-              preload="none"
+              preload="metadata"
               loading="lazy"
             >
               Seu navegador não suporta vídeos.
             </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-natural-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex items-end p-4">
+              <p className="text-white text-sm font-medium">Depoimento 3</p>
+            </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden">
+          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden relative group">
             <video
               src="https://i.imgur.com/u6bF0FY.mp4"
               controls
               className="w-full h-auto"
-              preload="none"
+              preload="metadata"
               loading="lazy"
             >
               Seu navegador não suporta vídeos.
             </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-natural-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex items-end p-4">
+              <p className="text-white text-sm font-medium">Depoimento 4</p>
+            </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden">
+          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden relative group">
             <video
               src="https://i.imgur.com/rzUgSjC.mp4"
               controls
               className="w-full h-auto"
-              preload="none"
+              preload="metadata"
               loading="lazy"
             >
               Seu navegador não suporta vídeos.
             </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-natural-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex items-end p-4">
+              <p className="text-white text-sm font-medium">Depoimento 5</p>
+            </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden">
+          <div className="bg-white rounded-xl shadow-lg border border-natural-100 overflow-hidden relative group">
             <video
               src="https://i.imgur.com/t0TYi4W.mp4"
               controls
               className="w-full h-auto"
-              preload="none"
+              preload="metadata"
               loading="lazy"
             >
               Seu navegador não suporta vídeos.
             </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-natural-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex items-end p-4">
+              <p className="text-white text-sm font-medium">Depoimento 6</p>
+            </div>
           </div>
         </div>
 
