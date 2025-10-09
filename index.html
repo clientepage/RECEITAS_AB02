@@ -158,52 +158,17 @@
       setBackRedirect(exitLink);
     </script>
     
-    <!-- UTMify Pixel Script - Permissões Totais -->
+    <!-- UTMify Pixel Script -->
     <script>
-      function loadPixel() {
-        window.pixelId = "68be1608013346c26842c789";
-        window.pixelConfig = {
-          trackPageView: true,
-          trackClicks: true,
-          trackScrollDepth: true,
-          trackTimeOnPage: true,
-          trackFormSubmissions: true,
-          trackButtonClicks: true,
-          trackVideoViews: true,
-          trackDownloads: true,
-          trackOutboundLinks: true,
-          trackCustomEvents: true,
-          trackMouseMovement: false,
-          trackKeyboardEvents: false,
-          trackTouchEvents: false,
-          trackWindowEvents: false,
-          trackNetworkEvents: false,
-          trackPerformanceMetrics: true,
-          trackUserAgent: true,
-          trackScreenResolution: true,
-          trackTimezone: true,
-          trackLanguage: true,
-          trackReferrer: true,
-          trackSessionData: true,
-          trackLocalStorage: true,
-          trackCookies: true,
-          captureAllEvents: false
-        };
-        var a = document.createElement("script");
-        a.async = true;
-        a.defer = true;
-        a.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
-        document.head.appendChild(a);
-      }
-
-      if (document.readyState === 'complete') {
-        setTimeout(loadPixel, 2000);
-      } else {
-        window.addEventListener('load', () => setTimeout(loadPixel, 2000));
-      }
+      window.pixelId = "68be1608013346c26842c789";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
     </script>
-    
-    <!-- UTMify UTMs Script - Permissões Totais -->
+
+    <!-- UTMify UTMs Script -->
     <script
       src="https://cdn.utmify.com.br/scripts/utms/latest.js"
       data-utmify-prevent-xcod-sck
